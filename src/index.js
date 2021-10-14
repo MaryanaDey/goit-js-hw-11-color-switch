@@ -22,14 +22,17 @@ const colors = [
 
   let intervalId;
 
-  function onStartButton(e) {
+  function onStartButton() {
       intervalId = setInterval(() => {
           refs.body.style.backgroundColor = colors[randomIntegerFromInterval(0, 5)];
       }, 1000); 
       refs.buttonStart.disabled = true;
+      refs.buttonStop.disabled = false;
   }
 
-  function onStopButton(e) {
+  function onStopButton() {
       clearInterval(intervalId);
-      refs.buttonStart = false;
+      refs.buttonStart.disabled = false;
+      refs.buttonStop.disabled = true;
+
   }
